@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ukdbtool"
+version = "0.1.0"
+description = "UKDB tooling: build/validate/hash UKDB packs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+  "pyyaml>=6.0",
+  "jsonschema>=4.20.0",
+  "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "ruff>=0.5.0",
+  "mypy>=1.8.0",
+]
+
+[project.scripts]
+ukdb = "ukdbtool.cli:main"
+
+[tool.ruff]
+line-length = 100
