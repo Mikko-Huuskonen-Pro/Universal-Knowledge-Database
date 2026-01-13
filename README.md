@@ -36,3 +36,43 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
 ukdb --help
+
+Non-goals
+No prompt instructions inside UKDB core files.
+No model-specific bindings.
+Tooling should remain usable without any AI.
+License
+MIT (see LICENSE)
+
+---
+
+# 2) ROADMAP.md
+
+```md
+# Roadmap
+
+## v0.1 (MVP)
+- [ ] Define schemas for: manifest, entity, source, claim, note, link
+- [ ] Implement `ukdb init`
+- [ ] Implement `ukdb validate` (jsonschema)
+- [ ] Implement `ukdb hash` (sha256, write to ukdb.yaml integrity section)
+- [ ] Implement `ukdb build`:
+  - [ ] Crawl input dir
+  - [ ] Create `sources` entries for files
+  - [ ] Copy attachments into `blobs/` with sha256 filenames
+  - [ ] Emit minimal `entities/notes` (optional)
+  - [ ] Write pack to output folder
+- [ ] Provide example pack in `examples/`
+
+## v0.2
+- [ ] Extract entities/claims from Markdown headings & frontmatter (rule-based)
+- [ ] Optional “export conversation to pack” adapter (still AI-agnostic)
+- [ ] Merge tools: `ukdb merge A B -> C` (dedupe by IDs and hashes)
+
+## v0.3
+- [ ] Pluggable extractors (pdf text, md, docx)
+- [ ] Provenance graph improvements (supports/contradicts linking)
+
+## v1.0
+- [ ] Stable spec + compatibility guarantees
+- [ ] Language bindings (Node/Go)
