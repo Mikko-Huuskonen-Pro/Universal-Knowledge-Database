@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UKDB Source v0.1",
+  "type": "object",
+  "required": ["id", "type", "title"],
+  "properties": {
+    "id": { "type": "string", "minLength": 3 },
+    "type": { "type": "string" },
+    "title": { "type": "string" },
+    "url": { "type": "string" },
+    "publisher": { "type": "string" },
+    "retrieved_at": { "type": "string" },
+    "occurred_at": { "type": "string" },
+    "license": { "type": "string" },
+    "reliability": { "type": "string" },
+    "blob": {
+      "type": "object",
+      "required": ["sha256", "path"],
+      "properties": {
+        "sha256": { "type": "string", "minLength": 16 },
+        "mime": { "type": "string" },
+        "path": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": true
+}

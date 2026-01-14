@@ -4,10 +4,10 @@ import argparse
 from pathlib import Path
 from rich.console import Console
 
-from ukdbtool.pack.build import build_pack
+from ukdbtool.pack.build import build_pack, init_pack_skeleton
 from ukdbtool.pack.validate import validate_pack
 from ukdbtool.pack.hash import write_integrity_hashes
-from ukdbtool.pack.build import init_pack_skeleton
+from ukdbtool.pack.export import export_repo_pack
 
 console = Console()
 
@@ -29,6 +29,13 @@ def main() -> None:
     p_hash = sub.add_parser("hash", help="Compute integrity hashes and write to manifest")
     p_hash.add_argument("pack", type=Path)
 
+    p_export = sub.add_parser(
+        "export",
+        help="Export a UKDB pack containing repo docs/schemas/examples and related files",
+    )
+    p_export.add_argument("repo_root", type=Path)
+    p_export.add_argument("out_pack", type=Path)
+
     args = parser.parse_args()
 
     if args.cmd == "init":
@@ -48,6 +55,15 @@ def main() -> None:
     if args.cmd == "hash":
         write_integrity_hashes(args.pack)
         console.print(f"[green]Wrote integrity hashes to manifest:[/green] {args.pack / 'ukdb.yaml'}")
+        return
+
+    if args.cmd == "export":
+        summary = export_repo_pack(args.repo_root, args.out_pack)
+        size_mb = summary.size_bytes / (1024 * 1024)
+        console.print(
+            "[green]Exported repo pack:[/green] "
+            f"{summary.pack_path} (files={summary.file_count}, size={size_mb:.2f} MiB)"
+        )
         return
 
 

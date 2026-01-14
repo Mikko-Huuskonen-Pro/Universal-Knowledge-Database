@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UKDB Note v0.1",
+  "type": "object",
+  "required": ["id", "type"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string" },
+    "title": { "type": "string" },
+    "body": { "type": "string" },
+    "priority": { "type": "string" },
+    "related": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "created_at": { "type": "string" }
+  },
+  "additionalProperties": true
+}
