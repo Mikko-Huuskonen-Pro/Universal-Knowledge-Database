@@ -49,3 +49,7 @@ def main() -> None:
         write_integrity_hashes(args.pack)
         console.print(f"[green]Wrote integrity hashes to manifest:[/green] {args.pack / 'ukdb.yaml'}")
         return
+
+
+if __name__ == "__main__":
+    main()

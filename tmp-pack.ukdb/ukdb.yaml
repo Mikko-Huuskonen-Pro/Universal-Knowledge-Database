@@ -1,0 +1,23 @@
+ukdb_version: '0.1'
+pack_id: pack_1768374210
+title: tmp-pack
+created_at: 2026-01-14T09:03:30+0200
+updated_at: 2026-01-14T09:03:30+0200
+license:
+  pack: MIT
+  blobs_default: unknown
+provenance:
+  created_by: human|tool
+  generators: []
+languages: []
+tags: []
+integrity:
+  hash_alg: sha256
+  files: {}
+defaults:
+  claim_confidence: 0.6
+  source_preference_order:
+  - official
+  - reputable
+  - community
+  - uncited
