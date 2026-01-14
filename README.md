@@ -22,11 +22,11 @@ A pack is a folder (or zip) containing:
 
 See: `docs/SPEC_UKDB_0_1.md` and `docs/PACK_FORMAT.md`.
 
-## CLI (planned MVP)
-- `ukdb init <path>` – create an empty pack skeleton
-- `ukdb build <input_dir> <out_pack>` – build a pack from a directory of files
+## CLI
+- `ukdb init <path>` – create an empty pack skeleton at `<path>.ukdb/`
+- `ukdb build <input_dir> <out_pack>` – build a pack from a directory of files into `<out_pack>.ukdb/`
 - `ukdb validate <pack>` – validate pack against JSON Schemas
-- `ukdb hash <pack>` – compute and write manifest integrity hashes
+- `ukdb hash <pack>` – compute and write manifest integrity hashes into `ukdb.yaml`
 
 Docs: `docs/CLI.md`
 
@@ -36,6 +36,13 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
 ukdb --help
+```
+
+On Windows from this repo you can also use:
+
+```powershell
+.\ukdb.cmd --help
+```
 
 Non-goals
 No prompt instructions inside UKDB core files.
