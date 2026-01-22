@@ -6,6 +6,8 @@ engine-ready parameters with explicit provenance and integrity hashing.
 This repository intentionally targets **deterministic consumption by computation engines**
 (e.g. payroll and accounting engines). Therefore UKDB packs are **integer-only** for all numeric fields.
 
+UKDB packs are not authored by humans.
+They are produced by compilers, importers, or AI systems and are intended for direct engine consumption.
 ---
 
 ## Core Philosophy
