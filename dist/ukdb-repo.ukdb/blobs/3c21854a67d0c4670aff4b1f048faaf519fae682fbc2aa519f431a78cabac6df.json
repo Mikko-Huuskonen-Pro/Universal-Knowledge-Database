@@ -1,0 +1,67 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UKDB Manifest v0.2",
+  "type": "object",
+  "required": ["ukdb_version", "pack_id", "title", "created_at", "updated_at"],
+  "properties": {
+    "ukdb_version": { "type": "string", "const": "0.2" },
+    "pack_id": { "type": "string" },
+    "title": { "type": "string" },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+
+    "license": {
+      "type": "object",
+      "properties": {
+        "pack": { "type": "string" },
+        "blobs_default": { "type": "string" }
+      }
+    },
+
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "created_by": { "type": "string" },
+        "generators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "role": { "type": "string" },
+              "version": { "type": "string" }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+
+    "languages": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "integrity": {
+      "type": "object",
+      "properties": {
+        "hash_alg": { "type": "string" },
+        "files": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+
+    "defaults": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

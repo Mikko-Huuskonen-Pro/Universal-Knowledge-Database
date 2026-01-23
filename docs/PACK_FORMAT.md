@@ -1,4 +1,4 @@
-# UKDB Pack Format (v0.1)
+# UKDB Pack Format (v0.2)
 
 A UKDB Pack is either:
 1) a directory ending with `.ukdb/`, or

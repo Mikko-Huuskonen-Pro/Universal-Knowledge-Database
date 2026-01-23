@@ -1,4 +1,4 @@
-ukdb_version: '0.1'
+ukdb_version: '0.2'
 pack_id: pack_1768382013
 title: tmp-pack
 created_at: 2026-01-14T11:13:33+0200
@@ -13,9 +13,14 @@ languages: []
 tags: []
 integrity:
   hash_alg: sha256
-  files: {}
+  files:
+    entities.ndjson: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    sources.ndjson: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    claims.ndjson: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    notes.ndjson: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    links.ndjson: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 defaults:
-  claim_confidence: 0.6
+  claim_confidence_bp: 6000
   source_preference_order:
   - official
   - reputable

@@ -1,4 +1,4 @@
-ukdb_version: "0.1"
+ukdb_version: "0.2"
 pack_id: "pack_kotimainen_os"
 title: "Kotimainen OS – Example Pack"
 created_at: "2026-01-13T10:00:00+02:00"
@@ -20,7 +20,7 @@ integrity:
   files: {}
 
 defaults:
-  claim_confidence: 0.6
+  claim_confidence_bp: 6000
   source_preference_order:
     - official
     - reputable

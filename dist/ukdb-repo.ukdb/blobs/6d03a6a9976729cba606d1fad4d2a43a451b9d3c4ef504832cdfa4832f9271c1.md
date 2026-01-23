@@ -31,9 +31,9 @@ Subcommands:
       - `blob`: `{ sha256, mime, path: "blobs/<sha256>.<ext>" }`
   - Other NDJSON files remain empty in this MVP.
   - Updates `ukdb.yaml.updated_at` to the build time.
-- `ukdb validate <pack>` – validate a pack against the v0.1 JSON Schemas
+- `ukdb validate <pack>` – validate a pack against the JSON Schemas for its `ukdb_version`
   - `<pack>` can be `name` or `name.ukdb`; the tool normalizes the suffix.
-  - Locates schemas from the repository’s `schemas/ukdb-0.1/*.schema.json`.
+  - Locates schemas from the repository’s `schemas/ukdb-<version>/*.schema.json`.
   - Exits with code `0` and prints `OK: Pack is valid` if everything passes.
 - `ukdb hash <pack>` – compute integrity hashes and write them into `ukdb.yaml`
   - Normalizes `<pack>` similarly to `validate`.

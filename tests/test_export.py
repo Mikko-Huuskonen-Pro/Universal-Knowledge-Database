@@ -19,8 +19,8 @@ def test_export_repo_pack_includes_allowlisted_files(tmp_path: Path) -> None:
 
     # Allowlisted dirs
     _write(repo, "docs/spec.md", "doc")
-    _write(repo, "schemas/ukdb-0.1/manifest.schema.json", "{}")
-    _write(repo, "examples/example.ukdb/ukdb.yaml", "version: 0.1")
+    _write(repo, "schemas/ukdb-0.2/manifest.schema.json", "{}")
+    _write(repo, "examples/example.ukdb/ukdb.yaml", "ukdb_version: 0.2")
 
     # Allowlisted root files
     _write(repo, "README.md", "readme")

@@ -24,7 +24,7 @@ def init_pack_skeleton(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
     manifest = {
-        "ukdb_version": "0.1",
+        "ukdb_version": "0.2",
         "pack_id": f"pack_{int(time.time())}",
         "title": path.stem,
         "created_at": _now_iso(),
@@ -34,7 +34,7 @@ def init_pack_skeleton(path: Path) -> None:
         "languages": [],
         "tags": [],
         "integrity": {"hash_alg": "sha256", "files": {}},
-        "defaults": {"claim_confidence": 0.6, "source_preference_order": ["official", "reputable", "community", "uncited"]},
+        "defaults": {"claim_confidence_bp": 6000, "source_preference_order": ["official", "reputable", "community", "uncited"]},
     }
     write_yaml(path / "ukdb.yaml", manifest)
 
@@ -53,8 +53,11 @@ def build_pack(input_dir: Path, out_pack: Path) -> None:
     - write sources.ndjson
     """
     input_dir = input_dir.resolve()
-    init_pack_skeleton(out_pack)
-    pack = (out_pack if out_pack.suffix == ".ukdb" else Path(str(out_pack) + ".ukdb")).resolve()
+    pack_path = out_pack if out_pack.suffix == ".ukdb" else Path(str(out_pack) + ".ukdb")
+    if pack_path.exists():
+        shutil.rmtree(pack_path)
+    init_pack_skeleton(pack_path)
+    pack = pack_path.resolve()
 
     sources_path = pack / "sources.ndjson"
     blobs_dir = pack / "blobs"
@@ -63,9 +66,9 @@ def build_pack(input_dir: Path, out_pack: Path) -> None:
     sources_path.write_text("", encoding="utf-8")
 
     idx = 0
-    for p in input_dir.rglob("*"):
-        if p.is_dir():
-            continue
+    files = [p for p in input_dir.rglob("*") if p.is_file()]
+    files = sorted(files, key=lambda p: str(p.relative_to(input_dir)).replace("\\", "/"))
+    for p in files:
         idx += 1
         h = sha256_file(p)
         ext = p.suffix.lower().lstrip(".") or "bin"

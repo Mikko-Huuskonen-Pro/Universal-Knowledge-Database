@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "UKDB Claim v0.1",
+  "title": "UKDB Claim v0.2",
   "type": "object",
   "required": ["id", "subject", "predicate", "object"],
   "properties": {

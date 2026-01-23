@@ -52,8 +52,11 @@ def export_repo_pack(repo_root: Path, out_pack: Path) -> ExportSummary:
     """
     repo_root = repo_root.resolve()
     # Normalize output to .ukdb directory via init_pack_skeleton
-    init_pack_skeleton(out_pack)
-    pack = (out_pack if out_pack.suffix == ".ukdb" else Path(str(out_pack) + ".ukdb")).resolve()
+    pack_path = out_pack if out_pack.suffix == ".ukdb" else Path(str(out_pack) + ".ukdb")
+    if pack_path.exists():
+        shutil.rmtree(pack_path)
+    init_pack_skeleton(pack_path)
+    pack = pack_path.resolve()
 
     sources_path = pack / "sources.ndjson"
     blobs_dir = pack / "blobs"

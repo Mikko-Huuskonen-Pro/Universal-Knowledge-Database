@@ -1,4 +1,4 @@
-ukdb_version: '0.1'
+ukdb_version: '0.2'
 pack_id: pack_1768382014
 title: tmp-built
 created_at: 2026-01-14T11:13:34+0200
@@ -21,7 +21,7 @@ integrity:
     links.ndjson: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
     blobs/94b65044b9c698cf1c2933cec3de207531b1b0cdb025a1db55610702239fe059.txt: 94b65044b9c698cf1c2933cec3de207531b1b0cdb025a1db55610702239fe059
 defaults:
-  claim_confidence: 0.6
+  claim_confidence_bp: 6000
   source_preference_order:
   - official
   - reputable

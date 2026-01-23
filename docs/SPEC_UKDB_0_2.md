@@ -1,4 +1,4 @@
-# UKDB Specification v0.1
+# UKDB Specification v0.2
 
 ## Design principles
 - AI-agnostic and vendor-neutral
@@ -28,7 +28,7 @@ Atomic knowledge statement.
 Required:
 - id, subject, predicate, object
 Recommended:
-- confidence (0..1), status, supports[], contradicts[]
+- confidence_bp (0..10000), status, supports[], contradicts[]
 
 ### Note
 Freeform memo/decision/todo.
@@ -42,7 +42,7 @@ Graph edge between objects.
 Required:
 - id, from, to, type
 Recommended:
-- weight (0..1)
+- weight_bp (0..10000)
 
 ## No prompt instructions
 Core UKDB files MUST NOT contain “how the AI should answer”.

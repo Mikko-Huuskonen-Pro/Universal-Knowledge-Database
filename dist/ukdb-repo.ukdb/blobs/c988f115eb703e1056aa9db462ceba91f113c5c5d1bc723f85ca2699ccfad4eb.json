@@ -21,10 +21,10 @@
       "additionalProperties": true
     },
     "status": { "type": "string" },
-    "confidence": {
-      "type": "number",
+    "confidence_bp": {
+      "type": "integer",
       "minimum": 0,
-      "maximum": 1
+      "maximum": 10000
     },
     "supports": {
       "type": "array",
